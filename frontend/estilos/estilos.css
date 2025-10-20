@@ -1,0 +1,293 @@
+/* ===== ESTILOS GENERALES ===== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #a8dadc, #457b9d);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2); 
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* ===== TEXTOS ===== */
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.note {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  color: #e0e0e0;
+}
+
+/* ===== LOGIN ===== */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+button {
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #2a9d8f;
+}
+
+.generoBtn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+}
+
+#btnNino {
+  background-color: #93c0d1; /* azul claro */
+}
+
+#btnNina {
+  background-color: rosybrown; /* rosa */
+}
+
+.generoBtn:hover {
+  transform: scale(1.1);
+}
+
+/* ===== MUÑECO Y ZONAS ===== */
+.muñeco-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.muñeco-wrapper img {
+  width: 200px;
+  height: auto;
+}
+
+/* Zonas de drop sobre el muñeco */
+.zona-drop {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  background-color: rgba(255,255,255,0.2);
+  transition: 0.2s;
+}
+
+.zona-drop.over {
+  border-color: #2a9d8f;
+}
+
+/* Posiciones específicas de cada zona sobre el muñeco */
+.pos-camisa {
+  top: 52px; /* bajar la zona de la camisa para que no tape la cara */
+  left: 70px;
+}
+
+.pos-pantalon {
+  top: 130px; /* bajar un poco más el pantalón */
+  left: 70px;
+}
+
+.pos-zapatos {
+  top: 220px; /* bajar zapatos para que queden en la base */
+  left: 70px;
+}
+
+/* ===== PRENDAS ===== */
+.prendas-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prenda {
+  width: 60px;
+  height: 60px;
+  cursor: grab;
+  transition: transform 0.18s, box-shadow 0.12s;
+  object-fit: contain;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.prenda:active {
+  cursor: grabbing;
+  transform: scale(1.08);
+}
+
+/* Per-level sizes */
+.prenda.size-small { width: 56px; height: 56px; }
+.prenda.size-medium { width: 70px; height: 70px; }
+.prenda.size-large { width: 90px; height: 90px; }
+
+/* Hover and interaction polish */
+.prenda:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.prenda-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #f4f4f4;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.prenda-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cuando se posicionan sobre el muñeco, permitir posicionamiento absoluto */
+.muñeco-wrapper .prenda-wrapper {
+  position: absolute;
+  pointer-events: auto;
+}
+
+/* Zona highlight states */
+.zona-drop.highlight {
+  box-shadow: 0 0 12px 4px rgba(42,157,143,0.45);
+  border-color: #2a9d8f;
+}
+.zona-drop.invalid {
+  box-shadow: 0 0 10px 3px rgba(220,38,38,0.25);
+  border-color: #dc2626;
+}
+
+/* Cuando una prenda ya fue colocada en la zona, ocultar el contorno para evitar confusión */
+.zona-drop.placed {
+  opacity: 0;
+  pointer-events: none;
+  border-color: transparent;
+  background: transparent;
+  transition: opacity 0.25s ease;
+}
+
+/* Editor UI */
+.editor-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+.editor-btn.active { background: #e76f51; }
+
+.editing .prenda-wrapper { outline: 2px dashed rgba(255,255,255,0.15); }
+.editor-hint {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  z-index: 9999;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  input[type="text"], button {
+    font-size: 0.95rem;
+  }
+
+  .muñeco-wrapper img {
+    width: 150px;
+  }
+
+  .zona-drop {
+    width: 50px;
+    height: 50px;
+  }
+
+  .prenda {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Ajustes de posición para pantallas pequeñas */
+  .pos-camisa { top: 40px; left: 55px; }
+  .pos-pantalon { top: 100px; left: 55px; }
+  .pos-zapatos { top: 160px; left: 55px; }
+}

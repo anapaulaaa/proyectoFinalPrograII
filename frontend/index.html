@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventuropa</title>
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a Aventuropa</h1>
+    <p>Ingresa tu nombre y selecciona tu género para comenzar:</p>
+
+    <!-- Input para el nombre -->
+    <div class="login-container">
+      <input type="text" id="username" placeholder="Tu nombre">
+    </div>
+
+    <!-- Selección de género -->
+    <div class="genero-container">
+      <button class="generoBtn" data-genero="nino" id="btnNino">Niño</button>
+      <button class="generoBtn" data-genero="nina" id="btnNina">Niña</button>
+    </div>
+
+    <!-- Botón de comenzar -->
+    <div class="start-container">
+      <button id="startBtn">Comenzar</button>
+    </div>
+
+    <p class="note">Cada niño tendrá su propio progreso guardado temporalmente.</p>
+  </div>
+
+  <script src="funcionamiento/login.js"></script>
+</body>
+</html>

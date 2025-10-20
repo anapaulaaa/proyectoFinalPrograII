@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventuropa - Juego</title>
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+  <div class="container">
+    <h2 id="bienvenida"></h2>
+    <p>Nivel: <span id="nivel"></span></p>
+
+    <div class="juego">
+      <div class="muñeco-wrapper">
+        <img id="muñeco" src="" alt="Muñeco">
+
+        <!-- Zonas de drop posicionadas sobre el muñeco -->
+        <div id="zonaCamisa" class="zona-drop pos-camisa"></div>
+        <div id="zonaPantalon" class="zona-drop pos-pantalon"></div>
+        <div id="zonaZapatos" class="zona-drop pos-zapatos"></div>
+      </div>
+
+      <div class="prendas-container">
+        <p>Arrastra la prenda correcta al muñeco:</p>
+        <div id="prendas"></div>
+      </div>
+    </div>
+
+    <button id="siguienteNivelBtn">Siguiente nivel ➡️</button>
+  </div>
+
+<script src="funcionamiento/niveles.js"></script>
+<script src="funcionamiento/main.js"></script>
+
+</body>
+</html>
