@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Perfil - Juego</title>
+	</head>
+	<body>
+		<h1>Perfil</h1>
+		<label>Nombre: <input id="username" /></label>
+		<button id="createProfile">Crear/Obtener Perfil</button>
+		<pre id="output"></pre>
+
+		<script>
+			const out = document.getElementById('output');
+			document.getElementById('createProfile').addEventListener('click', async () => {
+				const username = document.getElementById('username').value.trim();
+				if (!username) return alert('Escribe un nombre');
+				const res = await fetch('http://localhost:4000/api/profiles', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ username })
+				});
+				const data = await res.json();
+				out.textContent = JSON.stringify(data, null, 2);
+				// save id to localStorage for later
+				if (data && data.id) localStorage.setItem('profileId', data.id);
+			});
+
+			// Example save progress helper
+			async function saveProgress(progress) {
+				const id = localStorage.getItem('profileId');
+				if (!id) return alert('Crea o carga un perfil primero');
+				const res = await fetch(`http://localhost:4000/api/profiles/${id}/progress`, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ progress })
+				});
+				const data = await res.json();
+				out.textContent = JSON.stringify(data, null, 2);
+			}
+		</script>
+	</body>
+</html>

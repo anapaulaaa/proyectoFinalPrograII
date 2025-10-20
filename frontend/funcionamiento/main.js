@@ -96,6 +96,12 @@ function limpiarZonas() {
     z.style.width = '';
     z.style.height = '';
   });
+  // Además, eliminar cualquier prenda que haya sido colocada dentro del contenedor del muñeco
+  const muñecoWrapper = document.querySelector('.muñeco-wrapper');
+  if (muñecoWrapper) {
+    const colocadas = muñecoWrapper.querySelectorAll('.prenda-wrapper');
+    colocadas.forEach(c => c.remove());
+  }
 }
 
 // Comprobar si la carpeta de género tiene assets
