@@ -1,0 +1,17 @@
+.aprender-container {
+  background-color: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+.aprender-container h1, .aprender-container h2 {
+  color: #fff;
+}
+
+.aprender-container p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+}

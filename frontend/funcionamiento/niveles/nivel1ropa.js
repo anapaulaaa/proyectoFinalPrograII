@@ -1,7 +1,4 @@
-// Archivo: funcionamiento/main.js
-// `niveles.js` ahora expone `marcarNivelCompletado` y `puedeAvanzar` en window
 
-// Obtener datos del jugador
 const nombreJugador = localStorage.getItem('nombreJugador') || "Niño";
 // Normalizamos el género para evitar acentos y mayúsculas
 const generoJugadorRaw = localStorage.getItem('generoJugador') || "nino";
@@ -11,6 +8,16 @@ const generoJugador = generoJugadorRaw
   .toLowerCase();
 
 let nivelActual = parseInt(localStorage.getItem('nivelActual')) || 1;
+
+// Small per-type vertical offsets (px) to nudge placed images downward/ upward as needed.
+const placementOffsets = {
+  camisa: 8,
+  pantalon: 14,
+  zapatos: 6
+};
+
+// Opacity used for placed prendas (1 = opaque). Toggleable via UI button added later.
+let placedOpacity = 1.0;
 
 // Elementos DOM
 const bienvenida = document.getElementById('bienvenida');
@@ -279,8 +286,10 @@ zonas.forEach(zona => {
         wrapper.style.height = finalHeight + 'px';
 
         // centrar la prenda en la zona (ajusta left/top para centrar según tamaño natural)
-        const left = Math.round(zonaLeft - (finalWidth - zona.clientWidth) / 2);
-        const top = Math.round(zonaTop - (finalHeight - zona.clientHeight) / 2);
+  const left = Math.round(zonaLeft - (finalWidth - zona.clientWidth) / 2);
+  // apply per-type vertical offset so clothes don't overlap the face
+  const typeOffset = placementOffsets[tipoPrenda] || 0;
+  const top = Math.round(zonaTop - (finalHeight - zona.clientHeight) / 2 + typeOffset);
         wrapper.style.left = left + 'px';
         wrapper.style.top = top + 'px';
 
@@ -294,6 +303,8 @@ zonas.forEach(zona => {
           img.style.height = '100%';
           img.draggable = false;
           img.style.cursor = 'default';
+          // apply placed opacity so the prenda can be semi-transparent if toggled
+          wrapper.style.opacity = placedOpacity;
           // aplicar ajustes guardados (si existen)
           const file = img.getAttribute('src').split('/').pop();
           aplicarAjustesAlWrapper(wrapper, file);
@@ -404,6 +415,25 @@ const editorBtn = document.createElement('button');
 editorBtn.className = 'editor-btn';
 editorBtn.textContent = 'Editar ajuste';
 document.body.appendChild(editorBtn);
+
+// Add a small toggle to switch opacity for placed prendas (semi-transparent useful to fit)
+const opacityBtn = document.createElement('button');
+opacityBtn.style.position = 'fixed';
+opacityBtn.style.right = '18px';
+opacityBtn.style.bottom = '72px';
+opacityBtn.style.padding = '8px 10px';
+opacityBtn.style.borderRadius = '8px';
+opacityBtn.style.background = '#457b9d';
+opacityBtn.style.color = '#fff';
+opacityBtn.textContent = 'Toggle transparencia';
+opacityBtn.addEventListener('click', () => {
+  placedOpacity = placedOpacity === 1 ? 0.6 : 1;
+  // apply to any already placed wrappers
+  document.querySelectorAll('.muñeco-wrapper .prenda-wrapper').forEach(w => {
+    w.style.opacity = placedOpacity;
+  });
+});
+document.body.appendChild(opacityBtn);
 
 const editorHint = document.createElement('div');
 editorHint.className = 'editor-hint';
