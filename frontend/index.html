@@ -3,31 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aventuropa</title>
+  <title>Aventuropa - Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos/estilos.css">
 </head>
 <body>
   <div class="container">
-    <h1>Bienvenido a Aventuropa</h1>
-    <p>Ingresa tu nombre y selecciona tu género para comenzar:</p>
+    <h1>🌊 Aventuropa</h1>
+    <p>Aprende a vestirte de forma divertida</p>
 
-    <!-- Input para el nombre -->
-    <div class="login-container">
-      <input type="text" id="username" placeholder="Tu nombre">
+    <div class="form-group">
+      <label for="username">Tu nombre:</label>
+      <input type="text" id="username" placeholder="Escribe tu nombre aquí" maxlength="20">
     </div>
 
-    <!-- Selección de género -->
     <div class="genero-container">
-      <button class="generoBtn" data-genero="nino" id="btnNino">Niño</button>
-      <button class="generoBtn" data-genero="nina" id="btnNina">Niña</button>
+      <p>Selecciona tu personaje:</p>
+      <div class="genero-buttons">
+        <button class="generoBtn" data-genero="nino" id="btnNino">
+          <span class="emoji">👦</span>
+          <span>Niño</span>
+        </button>
+        <button class="generoBtn" data-genero="nina" id="btnNina">
+          <span class="emoji">👧</span>
+          <span>Niña</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Botón de comenzar -->
-    <div class="start-container">
-      <button id="startBtn">Comenzar</button>
-    </div>
+    <button id="startBtn" class="btn-primary">Comenzar Aventura ➡️</button>
 
-    <p class="note">Cada niño tendrá su propio progreso guardado temporalmente.</p>
+    <p class="note">Tu progreso se guardará automáticamente</p>
   </div>
 
   <script src="funcionamiento/login.js"></script>

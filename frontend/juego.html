@@ -4,49 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aventuropa - Juego</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos/juego.css">
 </head>
 <body>
-  <div class="container">
-    <h2 id="bienvenida"></h2>
-    <p>Nivel: <span id="nivel"></span></p>
+  <div class="game-header">
+    <button id="btnMenu" class="btn-back">← Menú</button>
+    <div class="header-info">
+      <h2 id="bienvenida"></h2>
+      <div class="nivel-info">
+        <span>Nivel <span id="nivelActual">1</span></span>
+        <span class="separator">•</span>
+        <span id="nivelNombre">Ropa Básica</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="juego">
-      <div class="muñeco-wrapper">
-        <img id="muñeco" src="" alt="Muñeco">
-
-        <!-- Zonas de drop posicionadas sobre el muñeco -->
-        <div id="zonaCamisa" class="zona-drop pos-camisa"></div>
-        <div id="zonaPantalon" class="zona-drop pos-pantalon"></div>
-        <div id="zonaZapatos" class="zona-drop pos-zapatos"></div>
+  <div class="game-container">
+    <div class="game-area">
+      <div class="muneco-section">
+        <div class="muneco-wrapper">
+          <img id="muneco" src="" alt="Personaje" class="muneco-img">
+          
+          <!-- Zonas Nivel 1 -->
+          <div id="zonaCamisa" class="zona-drop" data-tipo="camisa"></div>
+          <div id="zonaPantalon" class="zona-drop" data-tipo="pantalon"></div>
+          <div id="zonaZapatos" class="zona-drop" data-tipo="zapatos"></div>
+          
+          <!-- Zonas Nivel 2 -->
+          <div id="zonaGorra" class="zona-drop" data-tipo="gorra" style="display: none;"></div>
+          <div id="zonaReloj" class="zona-drop" data-tipo="reloj" style="display: none;"></div>
+          <div id="zonaLentes" class="zona-drop" data-tipo="lentes" style="display: none;"></div>
+          <div id="zonaMochila" class="zona-drop" data-tipo="mochila" style="display: none;"></div>
+        </div>
       </div>
 
-      <div class="prendas-container">
-        <p>Arrastra la prenda correcta al muñeco:</p>
-        <div id="prendas"></div>
+      <div class="prendas-section">
+        <h3>Arrastra las prendas</h3>
+        <div id="prendas" class="prendas-grid"></div>
+        
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p class="progress-text">
+            <span id="prendasColocadas">0</span> / <span id="prendasTotal">3</span> colocadas
+          </p>
+        </div>
       </div>
     </div>
 
-    <button id="siguienteNivelBtn">Siguiente nivel ➡️</button>
+    <div class="game-controls">
+      <button id="btnReiniciar" class="btn-secondary">🔄 Reiniciar</button>
+      <button id="btnSiguienteNivel" class="btn-primary" disabled>Siguiente Nivel ➡️</button>
+    </div>
   </div>
 
-<script src="funcionamiento/niveles.js"></script>
-<script src="funcionamiento/main.js"></script>
+  <div id="modalFelicitaciones" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>🎉 ¡Excelente!</h2>
+      <p id="mensajeFelicitacion"></p>
+      <button id="btnContinuar" class="btn-primary">Continuar</button>
+    </div>
+  </div>
 
-<div class="muñeco-wrapper">
-  <img id="muñeco" src="" alt="Muñeco">
-
-  <!-- Zonas de drop nivel 1 -->
-  <div id="zonaCamisa" class="zona-drop pos-camisa"></div>
-  <div id="zonaPantalon" class="zona-drop pos-pantalon"></div>
-  <div id="zonaZapatos" class="zona-drop pos-zapatos"></div>
-
-  <!-- Zonas de drop nivel 2 -->
-  <div id="zonaGorra" class="zona-drop pos-gorra"></div>
-  <div id="zonaReloj" class="zona-drop pos-reloj"></div>
-  <div id="zonaLentes" class="zona-drop pos-lentes"></div>
-  <div id="zonaMochila" class="zona-drop pos-mochila"></div>
-</div>
-
+  <script src="funcionamiento/niveles.js"></script>
+  <script src="funcionamiento/niveles/nivel1ropa.js"></script>
 </body>
 </html>
