@@ -1,17 +1,113 @@
 .aprender-container {
-  background-color: rgba(0,0,0,0.2);
-  padding: 20px;
-  border-radius: 15px;
-  margin: 10px auto;
-  max-width: 500px;
+  max-width: 800px;
+  padding: 80px 40px 40px;
 }
 
-.aprender-container h1, .aprender-container h2 {
-  color: #fff;
+/* ===== TUTORIALES ===== */
+.tutoriales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
-.aprender-container p {
-  font-size: 1rem;
-  color: #e0e0e0;
-  margin-bottom: 12px;
+.tutorial-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.tutorial-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.tutorial-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.tutorial-card p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.btn-tutorial {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+}
+
+.btn-tutorial:hover:not(:disabled) {
+  background-color: var(--color-secondary);
+}
+
+.btn-tutorial:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== CONTENIDO ===== */
+.tutorial-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+#tutorialBody {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: rgba(29, 53, 87, 0.95);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(230, 57, 70, 0.3);
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: 2px solid rgba(230, 57, 70, 0.5);
+}
+
+.btn-close:hover {
+  background-color: var(--color-accent);
+  transform: rotate(90deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .tutoriales-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #tutorialBody {
+    padding: 30px 20px;
+  }
 }

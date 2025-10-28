@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprender - Aventuropa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos/aprender.css">
+</head>
+<body>
+  <div class="container aprender-container">
+    <button id="btnMenu" class="btn-back">← Volver</button>
+    
+    <h1>📚 Modo Aprendizaje</h1>
+    <p>Aprende sobre cada prenda antes de jugar</p>
+
+    <div class="tutoriales-grid">
+      <div class="tutorial-card" data-tutorial="ropa">
+        <div class="tutorial-icon">👕</div>
+        <h3>Ropa Básica</h3>
+        <p>Camisa, pantalón y zapatos</p>
+        <button class="btn-tutorial">Empezar</button>
+      </div>
+
+      <div class="tutorial-card" data-tutorial="accesorios">
+        <div class="tutorial-icon">👓</div>
+        <h3>Accesorios</h3>
+        <p>Gorra, reloj, lentes y mochila</p>
+        <button class="btn-tutorial">Empezar</button>
+      </div>
+
+      <div class="tutorial-card" data-tutorial="situaciones">
+        <div class="tutorial-icon">🌤️</div>
+        <h3>Situaciones</h3>
+        <p>Clima y ocasiones especiales</p>
+        <button class="btn-tutorial" disabled>Próximamente</button>
+      </div>
+    </div>
+
+    <div id="tutorialContent" class="tutorial-content" style="display: none;">
+      <button id="btnCerrarTutorial" class="btn-close">✕</button>
+      <div id="tutorialBody"></div>
+    </div>
+  </div>
+
+  <script src="funcionamiento/aprender/tutoropa.js"></script>
+</body>
+</html>
