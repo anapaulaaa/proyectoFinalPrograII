@@ -140,49 +140,49 @@
 
 /* Posiciones específicas para cada zona */
 #zonaCamisa {
-  top: 25%;
+  top: 32%;
   left: 30%;
   width: 40%;
   height: 25%;
 }
 
 #zonaPantalon {
-  top: 50%;
+  top: 60%;
   left: 32%;
   width: 36%;
   height: 28%;
 }
 
 #zonaZapatos {
-  top: 78%;
+  top: 86%;
   left: 28%;
   width: 44%;
   height: 15%;
 }
 
 #zonaGorra {
-  top: 8%;
+  top: 14%;
   left: 35%;
   width: 30%;
   height: 18%;
 }
 
 #zonaReloj {
-  top: 45%;
+  top: 52%;
   left: 18%;
   width: 15%;
   height: 12%;
 }
 
 #zonaLentes {
-  top: 28%;
+  top: 36%;
   left: 36%;
   width: 28%;
   height: 10%;
 }
 
 #zonaMochila {
-  top: 30%;
+  top: 38%;
   left: 68%;
   width: 25%;
   height: 35%;
