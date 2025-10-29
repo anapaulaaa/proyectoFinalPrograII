@@ -57,6 +57,23 @@
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.menu-btn:hover::before {
+  left: 100%;
 }
 
 .menu-btn:hover {
@@ -71,6 +88,29 @@
   color: var(--color-text-muted);
 }
 
+/* ===== BOTÓN DEL RELOJ ===== */
+.menu-btn.btn-reloj {
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: brilloReloj 3s ease-in-out infinite;
+}
+
+.menu-btn.btn-reloj:hover {
+  background: linear-gradient(135deg, #e76f51, #f4a261);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(231, 111, 81, 0.5);
+}
+
+@keyframes brilloReloj {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(231, 111, 81, 0.6);
+  }
+}
+
+/* ===== BOTÓN SALIR ===== */
 .menu-btn.btn-salir {
   background-color: rgba(230, 57, 70, 0.3);
   border: 2px solid rgba(230, 57, 70, 0.5);
@@ -78,4 +118,19 @@
 
 .menu-btn.btn-salir:hover {
   background-color: var(--color-accent);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .menu-container {
+    padding: 30px 20px;
+  }
+  
+  #bienvenida {
+    font-size: 1.8rem;
+  }
+  
+  .menu-btn {
+    padding: 18px;
+  }
 }

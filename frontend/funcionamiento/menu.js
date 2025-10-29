@@ -3,6 +3,7 @@ const bienvenida = document.getElementById('bienvenida');
 const nivelesCompletadosDiv = document.getElementById('nivelesCompletados');
 const btnAprender = document.getElementById('btnAprender');
 const btnJuego = document.getElementById('btnJuego');
+const btnReloj = document.getElementById('btnReloj');
 const btnSalir = document.getElementById('btnSalir');
 
 // ===== OBTENER DATOS =====
@@ -65,6 +66,10 @@ btnAprender.addEventListener('click', () => {
 
 btnJuego.addEventListener('click', () => {
   window.location.href = "juego.html";
+});
+
+btnReloj.addEventListener('click', () => {
+  window.location.href = "juego-reloj.html";
 });
 
 btnSalir.addEventListener('click', () => {

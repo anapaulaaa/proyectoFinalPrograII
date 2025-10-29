@@ -138,7 +138,9 @@
   border-style: solid;
 }
 
-/* Posiciones específicas para cada zona */
+/* ===== POSICIONES ESPECÍFICAS DE ZONAS ===== */
+
+/* Nivel 1: Ropa Básica */
 #zonaCamisa {
   top: 32%;
   left: 30%;
@@ -160,8 +162,9 @@
   height: 15%;
 }
 
+/* Nivel 2: Accesorios - ZONAS AJUSTADAS */
 #zonaGorra {
-  top: 14%;
+  top: 8%;           /* Subido de 14% a 8% */
   left: 35%;
   width: 30%;
   height: 18%;
@@ -175,7 +178,7 @@
 }
 
 #zonaLentes {
-  top: 36%;
+  top: 29%;          /* Subido de 36% a 29% */
   left: 36%;
   width: 28%;
   height: 10%;
@@ -437,6 +440,15 @@
   
   .game-controls button {
     width: 100%;
+  }
+  
+  /* Ajustar zonas para móviles si es necesario */
+  #zonaGorra {
+    top: 10%;
+  }
+  
+  #zonaLentes {
+    top: 31%;
   }
 }
 
