@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego del Reloj - Aventuropa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos/juego-reloj.css">
+</head>
+<body>
+  <button id="btnMenu" class="btn-back">← Menú</button>
+
+  <div class="juego-container">
+    <div class="juego-header">
+      <h1>🕐 Juego del Reloj</h1>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">Puntos:</span>
+          <span id="puntos" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Nivel:</span>
+          <span id="nivel" class="stat-value">1</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Racha:</span>
+          <span id="racha" class="stat-value">0</span> 🔥
+        </div>
+      </div>
+    </div>
+
+    <div class="juego-area">
+      <div class="pregunta-section">
+        <h2 id="pregunta">¿Qué hora es?</h2>
+        <div class="reloj-wrapper">
+          <canvas id="relojJuego" width="350" height="350"></canvas>
+        </div>
+      </div>
+
+      <div class="opciones-section">
+        <h3>Selecciona la hora correcta:</h3>
+        <div id="opciones" class="opciones-grid">
+          <!-- Las opciones se generan dinámicamente -->
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback" id="feedback" style="display: none;">
+      <div class="feedback-content">
+        <div id="feedbackIcono" class="feedback-icono"></div>
+        <h3 id="feedbackTitulo"></h3>
+        <p id="feedbackMensaje"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Victoria -->
+  <div id="modalVictoria" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>🎉 ¡Felicidades!</h2>
+      <div class="trofeo-gigante">🏆</div>
+      <p id="mensajeVictoria"></p>
+      <div class="estadisticas-finales">
+        <div class="stat-final">
+          <div class="stat-final-valor" id="puntosFinales">0</div>
+          <div class="stat-final-label">Puntos Totales</div>
+        </div>
+        <div class="stat-final">
+          <div class="stat-final-valor" id="nivelAlcanzado">1</div>
+          <div class="stat-final-label">Nivel Alcanzado</div>
+        </div>
+        <div class="stat-final">
+          <div class="stat-final-valor" id="rachaMaxima">0</div>
+          <div class="stat-final-label">Racha Máxima</div>
+        </div>
+      </div>
+      <div class="modal-botones">
+        <button class="btn-primary" onclick="location.reload()">🔄 Jugar de Nuevo</button>
+        <button class="btn-secondary" onclick="window.location.href='menu.html'">🏠 Menú Principal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="funcionamiento/juegos/juego-reloj.js"></script>
+</body>
+</html>

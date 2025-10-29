@@ -12,37 +12,54 @@
 </head>
 <body>
   <div class="container aprender-container">
-    <button id="btnMenu" class="btn-back">← Volver</button>
+    <button id="btnMenu" class="btn-back">← Volver al Menú</button>
     
     <h1>📚 Modo Aprendizaje</h1>
-    <p>Aprende sobre cada prenda antes de jugar</p>
+    <p>Descubre todo sobre las prendas antes de jugar</p>
 
     <div class="tutoriales-grid">
+      <!-- Tutorial 1: Ropa Básica -->
       <div class="tutorial-card" data-tutorial="ropa">
-        <div class="tutorial-icon">👕</div>
+        <div class="tutorial-icon animate-bounce">👕</div>
         <h3>Ropa Básica</h3>
         <p>Camisa, pantalón y zapatos</p>
-        <button class="btn-tutorial">Empezar</button>
+        <div class="estrellitas">⭐⭐⭐</div>
+        <button class="btn-tutorial">Empezar Tutorial</button>
       </div>
 
+      <!-- Tutorial 2: Accesorios -->
       <div class="tutorial-card" data-tutorial="accesorios">
-        <div class="tutorial-icon">👓</div>
+        <div class="tutorial-icon animate-bounce">👓</div>
         <h3>Accesorios</h3>
         <p>Gorra, reloj, lentes y mochila</p>
-        <button class="btn-tutorial">Empezar</button>
+        <div class="estrellitas">⭐⭐</div>
+        <button class="btn-tutorial">Empezar Tutorial</button>
       </div>
 
-      <div class="tutorial-card" data-tutorial="situaciones">
-        <div class="tutorial-icon">🌤️</div>
+      <!-- Tutorial 3: Situaciones (bloqueado) -->
+      <div class="tutorial-card disabled" data-tutorial="situaciones">
+        <div class="tutorial-icon">🔒</div>
         <h3>Situaciones</h3>
         <p>Clima y ocasiones especiales</p>
+        <div class="estrellitas">⭐</div>
         <button class="btn-tutorial" disabled>Próximamente</button>
       </div>
+      <!-- Tutorial del Reloj (NUEVO) -->
+<div class="tutorial-card" data-tutorial="reloj">
+  <div class="tutorial-icon animate-bounce">⏰</div>
+  <h3>Aprender la Hora</h3>
+  <p>Tutorial completo del reloj</p>
+  <div class="estrellitas">⭐⭐⭐</div>
+  <button class="btn-tutorial" onclick="window.location.href='tutorial-reloj.html'">Empezar Tutorial</button>
+</div>
     </div>
+  </div>
 
-    <div id="tutorialContent" class="tutorial-content" style="display: none;">
-      <button id="btnCerrarTutorial" class="btn-close">✕</button>
-      <div id="tutorialBody"></div>
+  <!-- Modal de Tutorial -->
+  <div id="tutorialModal" class="tutorial-modal" style="display: none;">
+    <button id="btnCerrarTutorial" class="btn-close">✕</button>
+    <div class="tutorial-wrapper">
+      <div id="tutorialBody" class="tutorial-body"></div>
     </div>
   </div>
 
