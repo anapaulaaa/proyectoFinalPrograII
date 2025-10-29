@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial del Reloj - Aventuropa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos/tutorial-reloj.css">
+</head>
+<body>
+  <button id="btnMenu" class="btn-back">← Menú</button>
+
+  <!-- Pantalla de Bienvenida -->
+  <div id="pantallaBienvenida" class="pantalla-bienvenida">
+    <div class="container bienvenida-container">
+      <div class="reloj-gigante">⏰</div>
+      <h1>Aprende a Leer el Reloj</h1>
+      <p class="subtitulo">Un tutorial interactivo y divertido</p>
+      
+      <div class="caracteristicas">
+        <div class="caracteristica-item">
+          <div class="caracteristica-icon">🎯</div>
+          <h3>6 Lecciones</h3>
+          <p>Paso a paso</p>
+        </div>
+        <div class="caracteristica-item">
+          <div class="caracteristica-icon">🎨</div>
+          <h3>Interactivo</h3>
+          <p>Con ejemplos visuales</p>
+        </div>
+        <div class="caracteristica-item">
+          <div class="caracteristica-icon">🎮</div>
+          <h3>Práctica</h3>
+          <p>Juego al final</p>
+        </div>
+      </div>
+
+      <button id="btnComenzar" class="btn-primary btn-grande">
+        🚀 Comenzar Tutorial
+      </button>
+    </div>
+  </div>
+
+  <!-- Pantalla de Lecciones -->
+  <div id="pantallaLecciones" class="pantalla-lecciones" style="display: none;">
+    <div class="leccion-container">
+      <div class="leccion-header">
+        <div class="progreso-lecciones">
+          <span>Lección <span id="leccionActual">1</span> de <span id="leccionTotal">6</span></span>
+          <div class="barra-progreso">
+            <div id="barraProgresoFill" class="barra-progreso-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contenidoLeccion" class="leccion-contenido">
+        <!-- El contenido se carga dinámicamente aquí -->
+      </div>
+
+      <div class="leccion-controles">
+        <button id="btnAnterior" class="btn-control btn-anterior">
+          ← Anterior
+        </button>
+        <button id="btnSiguiente" class="btn-control btn-siguiente">
+          Siguiente →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="funcionamiento/aprender/tutoreloj.js"></script>
+</body>
+</html>

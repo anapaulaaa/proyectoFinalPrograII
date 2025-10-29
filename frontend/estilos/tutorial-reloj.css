@@ -1,0 +1,476 @@
+/* ===== PANTALLA DE BIENVENIDA ===== */
+.pantalla-bienvenida {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.bienvenida-container {
+  max-width: 700px;
+  text-align: center;
+}
+
+.reloj-gigante {
+  font-size: 8rem;
+  margin-bottom: 20px;
+  animation: swing 2s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.subtitulo {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: var(--color-light);
+}
+
+/* ===== CARACTERÍSTICAS ===== */
+.caracteristicas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.caracteristica-item {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+}
+
+.caracteristica-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-secondary);
+  box-shadow: 0 10px 30px rgba(42, 157, 143, 0.3);
+}
+
+.caracteristica-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.caracteristica-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--color-light);
+}
+
+.caracteristica-item p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.btn-grande {
+  padding: 18px 50px;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+/* ===== PANTALLA DE LECCIONES ===== */
+.pantalla-lecciones {
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+}
+
+.leccion-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER DE LECCIÓN ===== */
+.leccion-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.progreso-lecciones {
+  text-align: center;
+}
+
+.progreso-lecciones > span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-light);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.barra-progreso {
+  width: 100%;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.barra-progreso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  width: 16.66%; /* 1 de 6 lecciones */
+}
+
+/* ===== CONTENIDO DE LECCIÓN ===== */
+.leccion-contenido {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  min-height: 500px;
+}
+
+.leccion-intro h2,
+.leccion-partes h2,
+.leccion-horas h2,
+.leccion-media h2,
+.leccion-cuarto h2,
+.leccion-practica h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-light);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--color-text);
+}
+
+/* ===== RELOJ PREVIEW ===== */
+.reloj-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.reloj-preview canvas {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== INFO BOX ===== */
+.info-box {
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.2), rgba(42, 157, 143, 0.1));
+  border: 2px solid var(--color-secondary);
+  border-radius: 15px;
+  padding: 25px 30px;
+  margin: 30px 0;
+}
+
+.info-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--color-secondary);
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-box ul li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.info-box ul li::before {
+  content: "⏰";
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+}
+
+.info-box ul li strong {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+/* ===== PARTES GRID ===== */
+.partes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.parte-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.parte-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-secondary);
+  box-shadow: 0 8px 25px rgba(42, 157, 143, 0.3);
+}
+
+.parte-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.parte-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--color-light);
+}
+
+.parte-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ===== EJEMPLOS GRID ===== */
+.ejemplos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.ejemplo-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 25px 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ejemplo-card:hover {
+  transform: scale(1.05);
+  border-color: var(--color-secondary);
+  background: rgba(42, 157, 143, 0.15);
+}
+
+.ejemplo-hora {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.ejemplo-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: var(--color-light);
+}
+
+.ejemplo-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ===== TIP BOX ===== */
+.tip-box {
+  background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.1));
+  border: 3px solid var(--color-accent);
+  border-radius: 20px;
+  padding: 25px 30px;
+  margin: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-box::before {
+  content: '💡';
+  font-size: 5rem;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+}
+
+.tip-box strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--color-accent);
+}
+
+.tip-box p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* ===== RESUMEN BOX ===== */
+.resumen-box {
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.25), rgba(42, 157, 143, 0.15));
+  border: 3px solid var(--color-secondary);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.resumen-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+.resumen-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resumen-box ul li {
+  font-size: 1.2rem;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border-left: 5px solid var(--color-secondary);
+}
+
+/* ===== CONTROLES DE LECCIÓN ===== */
+.leccion-controles {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.btn-control {
+  flex: 1;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  max-width: 250px;
+}
+
+.btn-anterior {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-anterior:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.btn-siguiente {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+  color: var(--color-text);
+  border: none;
+  box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+}
+
+.btn-siguiente:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(42, 157, 143, 0.6);
+}
+
+.btn-control:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== BOTÓN DE PRÁCTICA ===== */
+.btn-practica {
+  display: block;
+  margin: 40px auto 0;
+  padding: 18px 50px;
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, #e63946, #f77f00);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+}
+
+.btn-practica:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.6);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .reloj-gigante {
+    font-size: 6rem;
+  }
+  
+  .caracteristicas {
+    grid-template-columns: 1fr;
+  }
+  
+  .leccion-contenido {
+    padding: 25px 20px;
+  }
+  
+  .partes-grid,
+  .ejemplos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .leccion-controles {
+    flex-direction: column;
+  }
+  
+  .btn-control {
+    max-width: 100%;
+  }
+  
+  .reloj-preview canvas {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pantalla-lecciones {
+    padding: 70px 15px 30px;
+  }
+  
+  .leccion-intro h2,
+  .leccion-partes h2,
+  .leccion-horas h2,
+  .leccion-media h2,
+  .leccion-cuarto h2,
+  .leccion-practica h2 {
+    font-size: 2rem;
+  }
+  
+  .reloj-preview canvas {
+    width: 220px !important;
+    height: 220px !important;
+  }
+}
