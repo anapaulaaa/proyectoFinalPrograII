@@ -27,7 +27,8 @@
 .subtitulo {
   font-size: 1.3rem;
   margin-bottom: 40px;
-  color: var(--color-light);
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== CARACTERÍSTICAS ===== */
@@ -60,12 +61,13 @@
 .caracteristica-item h3 {
   font-size: 1.3rem;
   margin-bottom: 8px;
-  color: var(--color-light);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .caracteristica-item p {
   font-size: 0.95rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
@@ -103,7 +105,7 @@
 .progreso-lecciones > span {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--color-light);
+  color: #ffffff;
   display: block;
   margin-bottom: 15px;
 }
@@ -144,8 +146,8 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 20px;
-  color: var(--color-light);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .intro-text {
@@ -153,7 +155,8 @@
   line-height: 1.8;
   text-align: center;
   margin-bottom: 30px;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== RELOJ PREVIEW ===== */
@@ -196,6 +199,7 @@
   position: relative;
   font-size: 1.1rem;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .info-box ul li::before {
@@ -241,12 +245,13 @@
 .parte-card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: var(--color-light);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .parte-card p {
   font-size: 0.95rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
 
@@ -281,12 +286,13 @@
 .ejemplo-card h4 {
   font-size: 1.5rem;
   margin-bottom: 5px;
-  color: var(--color-light);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .ejemplo-card p {
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
 
@@ -322,7 +328,8 @@
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== RESUMEN BOX ===== */
@@ -353,6 +360,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   border-left: 5px solid var(--color-secondary);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ===== CONTROLES DE LECCIÓN ===== */
@@ -374,7 +382,7 @@
 
 .btn-anterior {
   background: rgba(255, 255, 255, 0.1);
-  color: var(--color-text);
+  color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -385,7 +393,7 @@
 
 .btn-siguiente {
   background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-  color: var(--color-text);
+  color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
 }

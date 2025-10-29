@@ -237,150 +237,149 @@ const TUTORIALES = {
     `
   },
   
-  
-situaciones: {
-  titulo: '🌤️ Situaciones y Ocasiones',
-  subtitulo: 'Aprende a vestirte según el momento',
-  contenido: `
-    <div class="tutorial-header">
-      <h2>🌤️ Situaciones y Ocasiones</h2>
-      <p>Viste apropiadamente para cada momento del día</p>
-    </div>
+  situaciones: {
+    titulo: '🌤️ Situaciones y Ocasiones',
+    subtitulo: 'Aprende a vestirte según el momento',
+    contenido: `
+      <div class="tutorial-header">
+        <h2>🌤️ Situaciones y Ocasiones</h2>
+        <p>Viste apropiadamente para cada momento del día</p>
+      </div>
 
-    <div class="prenda-card">
-      <div class="prenda-header">
-        <div class="prenda-icon">🏫</div>
-        <div class="prenda-title">
-          <h3>Para la Escuela</h3>
-          <span class="prenda-subtitle">Ropa cómoda y práctica</span>
+      <div class="prenda-card">
+        <div class="prenda-header">
+          <div class="prenda-icon">🏫</div>
+          <div class="prenda-title">
+            <h3>Para la Escuela</h3>
+            <span class="prenda-subtitle">Ropa cómoda y práctica</span>
+          </div>
         </div>
-      </div>
-      <div class="prenda-content">
-        <p class="prenda-description">
-          En la escuela necesitamos estar cómodos para aprender y jugar.
-          La ropa debe ser práctica y permitirnos movernos libremente.
-        </p>
-        <ul class="prenda-list">
-          <li>Uniforme escolar o ropa casual</li>
-          <li>Zapatos cerrados y cómodos</li>
-          <li>Mochila con útiles escolares</li>
-          <li>Gorra para el recreo (si hay sol)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prenda-card">
-      <div class="prenda-header">
-        <div class="prenda-icon">🎉</div>
-        <div class="prenda-title">
-          <h3>Para una Fiesta</h3>
-          <span class="prenda-subtitle">Ropa especial y elegante</span>
-        </div>
-      </div>
-      <div class="prenda-content">
-        <p class="prenda-description">
-          Las fiestas son ocasiones especiales donde nos vestimos
-          con nuestra mejor ropa para celebrar y divertirnos.
-        </p>
-        <ul class="prenda-list">
-          <li>Camisa o vestido elegante</li>
-          <li>Pantalón o falda formal</li>
-          <li>Zapatos limpios y brillantes</li>
-          <li>Accesorios especiales (moño, diadema)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prenda-card">
-      <div class="prenda-header">
-        <div class="prenda-icon">🌙</div>
-        <div class="prenda-title">
-          <h3>Para Dormir</h3>
-          <span class="prenda-subtitle">Ropa cómoda para descansar</span>
-        </div>
-      </div>
-      <div class="prenda-content">
-        <p class="prenda-description">
-          La pijama es ropa especial que usamos para dormir.
-          Debe ser suave, cómoda y abrigadora.
-        </p>
-        <ul class="prenda-list">
-          <li>Pijama de dos piezas o de una sola</li>
-          <li>Pantuflas suaves</li>
-          <li>Sin accesorios que molesten</li>
-          <li>Ropa limpia y fresca</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="prenda-card">
-      <div class="prenda-header">
-        <div class="prenda-icon">⛱️</div>
-        <div class="prenda-title">
-          <h3>Para la Playa o Piscina</h3>
-          <span class="prenda-subtitle">Ropa de baño y protección</span>
-        </div>
-      </div>
-      <div class="prenda-content">
-        <p class="prenda-description">
-          Cuando vamos a la playa o piscina necesitamos ropa
-          especial que nos permita nadar y protegernos del sol.
-        </p>
-        <ul class="prenda-list">
-          <li>Traje de baño o pantaloneta</li>
-          <li>Sandalias o chanclas</li>
-          <li>Gorra para proteger del sol</li>
-          <li>Lentes de sol</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pasos-section">
-      <h3>🕐 Momentos del Día</h3>
-      
-      <div class="paso-item">
-        <div class="paso-numero">🌅</div>
-        <div class="paso-content">
-          <h4>Por la Mañana (7:00 AM)</h4>
-          <p>Nos vestimos para ir a la escuela con uniforme o ropa casual</p>
+        <div class="prenda-content">
+          <p class="prenda-description">
+            En la escuela necesitamos estar cómodos para aprender y jugar.
+            La ropa debe ser práctica y permitirnos movernos libremente.
+          </p>
+          <ul class="prenda-list">
+            <li>Uniforme escolar o ropa casual</li>
+            <li>Zapatos cerrados y cómodos</li>
+            <li>Mochila con útiles escolares</li>
+            <li>Gorra para el recreo (si hay sol)</li>
+          </ul>
         </div>
       </div>
 
-      <div class="paso-item">
-        <div class="paso-numero">☀️</div>
-        <div class="paso-content">
-          <h4>En la Tarde (3:00 PM)</h4>
-          <p>Podemos cambiar a ropa más cómoda para jugar en casa</p>
+      <div class="prenda-card">
+        <div class="prenda-header">
+          <div class="prenda-icon">🎉</div>
+          <div class="prenda-title">
+            <h3>Para una Fiesta</h3>
+            <span class="prenda-subtitle">Ropa especial y elegante</span>
+          </div>
+        </div>
+        <div class="prenda-content">
+          <p class="prenda-description">
+            Las fiestas son ocasiones especiales donde nos vestimos
+            con nuestra mejor ropa para celebrar y divertirnos.
+          </p>
+          <ul class="prenda-list">
+            <li>Camisa o vestido elegante</li>
+            <li>Pantalón o falda formal</li>
+            <li>Zapatos limpios y brillantes</li>
+            <li>Accesorios especiales (moño, diadema)</li>
+          </ul>
         </div>
       </div>
 
-      <div class="paso-item">
-        <div class="paso-numero">🌆</div>
-        <div class="paso-content">
-          <h4>Por la Noche (7:00 PM)</h4>
-          <p>Nos ponemos ropa fresca para cenar y estar en familia</p>
+      <div class="prenda-card">
+        <div class="prenda-header">
+          <div class="prenda-icon">🌙</div>
+          <div class="prenda-title">
+            <h3>Para Dormir</h3>
+            <span class="prenda-subtitle">Ropa cómoda para descansar</span>
+          </div>
+        </div>
+        <div class="prenda-content">
+          <p class="prenda-description">
+            La pijama es ropa especial que usamos para dormir.
+            Debe ser suave, cómoda y abrigadora.
+          </p>
+          <ul class="prenda-list">
+            <li>Pijama de dos piezas o de una sola</li>
+            <li>Pantuflas suaves</li>
+            <li>Sin accesorios que molesten</li>
+            <li>Ropa limpia y fresca</li>
+          </ul>
         </div>
       </div>
 
-      <div class="paso-item">
-        <div class="paso-numero">🌙</div>
-        <div class="paso-content">
-          <h4>Antes de Dormir (9:00 PM)</h4>
-          <p>Nos cambiamos a pijama para estar cómodos toda la noche</p>
+      <div class="prenda-card">
+        <div class="prenda-header">
+          <div class="prenda-icon">⛱️</div>
+          <div class="prenda-title">
+            <h3>Para la Playa o Piscina</h3>
+            <span class="prenda-subtitle">Ropa de baño y protección</span>
+          </div>
+        </div>
+        <div class="prenda-content">
+          <p class="prenda-description">
+            Cuando vamos a la playa o piscina necesitamos ropa
+            especial que nos permita nadar y protegernos del sol.
+          </p>
+          <ul class="prenda-list">
+            <li>Traje de baño o pantaloneta</li>
+            <li>Sandalias o chanclas</li>
+            <li>Gorra para proteger del sol</li>
+            <li>Lentes de sol</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="tip-box">
-      <strong>💡 Consejo Importante</strong>
-      <p>Cada situación requiere ropa diferente. Piensa siempre: ¿A dónde voy? ¿Qué voy a hacer? ¿Qué clima hay? Esto te ayudará a elegir la ropa perfecta.</p>
-    </div>
+      <div class="pasos-section">
+        <h3>🕐 Momentos del Día</h3>
+        
+        <div class="paso-item">
+          <div class="paso-numero">🌅</div>
+          <div class="paso-content">
+            <h4>Por la Mañana (7:00 AM)</h4>
+            <p>Nos vestimos para ir a la escuela con uniforme o ropa casual</p>
+          </div>
+        </div>
 
-    <button class="btn-practica" onclick="window.location.href='juego.html'">
-      🎮 ¡Practica Diferentes Situaciones!
-    </button>
-  `
-}
+        <div class="paso-item">
+          <div class="paso-numero">☀️</div>
+          <div class="paso-content">
+            <h4>En la Tarde (3:00 PM)</h4>
+            <p>Podemos cambiar a ropa más cómoda para jugar en casa</p>
+          </div>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">🌆</div>
+          <div class="paso-content">
+            <h4>Por la Noche (7:00 PM)</h4>
+            <p>Nos ponemos ropa fresca para cenar y estar en familia</p>
+          </div>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">🌙</div>
+          <div class="paso-content">
+            <h4>Antes de Dormir (9:00 PM)</h4>
+            <p>Nos cambiamos a pijama para estar cómodos toda la noche</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 Consejo Importante</strong>
+        <p>Cada situación requiere ropa diferente. Piensa siempre: ¿A dónde voy? ¿Qué voy a hacer? ¿Qué clima hay? Esto te ayudará a elegir la ropa perfecta.</p>
+      </div>
+
+      <button class="btn-practica" onclick="window.location.href='juego.html'">
+        🎮 ¡Practica Diferentes Situaciones!
+      </button>
+    `
+  }
 };
 
 // ===== EVENTOS =====
@@ -392,8 +391,18 @@ tutorialCards.forEach(card => {
   const btnTutorial = card.querySelector('.btn-tutorial');
   const tutorial = card.dataset.tutorial;
   
-  btnTutorial.addEventListener('click', () => {
+  btnTutorial.addEventListener('click', (e) => {
+    e.stopPropagation(); // Evitar propagación
+    
     if (btnTutorial.disabled) return;
+    
+    // Si es el tutorial del reloj, redirigir a tutorial-reloj.html
+    if (tutorial === 'reloj') {
+      window.location.href = 'tutorial-reloj.html';
+      return;
+    }
+    
+    // Para otros tutoriales, mostrar modal
     mostrarTutorial(tutorial);
   });
   
@@ -401,6 +410,13 @@ tutorialCards.forEach(card => {
   card.addEventListener('click', (e) => {
     if (card.classList.contains('disabled')) return;
     if (e.target === btnTutorial) return; // Evitar doble disparo
+    
+    // Si es el tutorial del reloj, redirigir
+    if (tutorial === 'reloj') {
+      window.location.href = 'tutorial-reloj.html';
+      return;
+    }
+    
     mostrarTutorial(tutorial);
   });
 });
