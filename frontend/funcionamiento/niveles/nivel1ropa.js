@@ -53,6 +53,10 @@ const NIVELES_CONFIG = {
       { tipo: 'mochila', zona: zonaMochila, variantes: 1 }
     ],
     zonas: [zonaGorra, zonaReloj, zonaLentes, zonaMochila]
+  },
+  3: {
+    nombre: 'Situaciones Especiales',
+    especial: true // Indica que usa lógica especial
   }
 };
 
@@ -67,7 +71,18 @@ function inicializarJuego() {
     return;
   }
 
-  actualizarPantalla();
+  // Cargar script del nivel 3 si es necesario
+  if (nivelActual === 3 && !window.inicializarNivel3) {
+    const script = document.createElement('script');
+    script.src = 'funcionamiento/niveles/nivel3situaciones.js';
+    script.onload = () => {
+      actualizarPantalla();
+    };
+    document.body.appendChild(script);
+  } else {
+    actualizarPantalla();
+  }
+  
   configurarEventos();
 }
 
@@ -75,8 +90,30 @@ function inicializarJuego() {
 function actualizarPantalla() {
   bienvenida.textContent = `¡Hola, ${nombreJugador}! 🌊`;
   nivelHTML.textContent = nivelActual;
-  nivelNombre.textContent = NIVELES_CONFIG[nivelActual].nombre;
   
+  const config = NIVELES_CONFIG[nivelActual];
+  if (!config) {
+    alert('¡Felicidades! Has completado todos los niveles 🎊');
+    window.location.href = 'menu.html';
+    return;
+  }
+  
+  nivelNombre.textContent = config.nombre;
+  
+  // Si es nivel especial (3), usar su propia lógica
+  if (config.especial && window.inicializarNivel3) {
+    window.inicializarNivel3();
+    // Ocultar elementos no necesarios para nivel 3
+    const prendasSection = document.querySelector('.prendas-section');
+    if (prendasSection) prendasSection.style.display = 'none';
+    return;
+  } else {
+    // Mostrar elementos para niveles 1 y 2
+    const prendasSection = document.querySelector('.prendas-section');
+    if (prendasSection) prendasSection.style.display = 'flex';
+  }
+  
+  // Para niveles 1 y 2
   limpiarJuego();
   configurarZonasNivel();
   cargarMuneco();
@@ -91,22 +128,53 @@ function limpiarJuego() {
   
   // Limpiar todas las zonas
   Object.values(NIVELES_CONFIG).forEach(config => {
-    config.zonas.forEach(zona => {
-      zona.innerHTML = '';
-      zona.classList.remove('highlight', 'invalid', 'filled');
-      zona.style.display = 'none';
-    });
+    if (config.zonas) {
+      config.zonas.forEach(zona => {
+        zona.innerHTML = '';
+        zona.classList.remove('highlight', 'invalid', 'filled');
+        zona.style.display = 'none';
+      });
+    }
   });
+  
+  // Restaurar muñeco
+  const munecosSection = document.querySelector('.muneco-section');
+  if (!munecosSection.querySelector('.muneco-wrapper')) {
+    munecosSection.innerHTML = `
+      <div class="muneco-wrapper">
+        <img id="muneco" src="" alt="Personaje" class="muneco-img">
+        
+        <div id="zonaCamisa" class="zona-drop" data-tipo="camisa"></div>
+        <div id="zonaPantalon" class="zona-drop" data-tipo="pantalon"></div>
+        <div id="zonaZapatos" class="zona-drop" data-tipo="zapatos"></div>
+        
+        <div id="zonaGorra" class="zona-drop" data-tipo="gorra" style="display: none;"></div>
+        <div id="zonaReloj" class="zona-drop" data-tipo="reloj" style="display: none;"></div>
+        <div id="zonaLentes" class="zona-drop" data-tipo="lentes" style="display: none;"></div>
+        <div id="zonaMochila" class="zona-drop" data-tipo="mochila" style="display: none;"></div>
+      </div>
+    `;
+    
+    // Re-asignar referencias a zonas
+    zonaCamisa = document.getElementById('zonaCamisa');
+    zonaPantalon = document.getElementById('zonaPantalon');
+    zonaZapatos = document.getElementById('zonaZapatos');
+    zonaGorra = document.getElementById('zonaGorra');
+    zonaReloj = document.getElementById('zonaReloj');
+    zonaLentes = document.getElementById('zonaLentes');
+    zonaMochila = document.getElementById('zonaMochila');
+    muneco = document.getElementById('muneco');
+  }
 }
 
 // ===== CONFIGURAR ZONAS DEL NIVEL =====
 function configurarZonasNivel() {
   const config = NIVELES_CONFIG[nivelActual];
-  if (!config) return;
+  if (!config || config.especial) return;
   
   // Mostrar zonas del nivel actual
   config.zonas.forEach(zona => {
-    zona.style.display = 'block';
+    if (zona) zona.style.display = 'block';
   });
   
   // Configurar eventos de drop
@@ -117,6 +185,9 @@ function configurarZonasNivel() {
 
 // ===== CARGAR MUÑECO =====
 function cargarMuneco() {
+  const munecoEl = document.getElementById('muneco');
+  if (!munecoEl) return;
+  
   const rutasMuneco = [
     `recursos/imagenes/${generoJugador}/muneco.png`,
     `recursos/imagenes/${generoJugador}/muñeco.png`,
@@ -129,17 +200,17 @@ function cargarMuneco() {
   function intentarCargar() {
     if (intentoActual >= rutasMuneco.length) {
       console.error('No se pudo cargar el muñeco');
-      muneco.style.display = 'none';
+      munecoEl.style.display = 'none';
       return;
     }
     
-    muneco.src = rutasMuneco[intentoActual];
+    munecoEl.src = rutasMuneco[intentoActual];
     intentoActual++;
   }
   
-  muneco.onerror = intentarCargar;
-  muneco.onload = () => {
-    muneco.style.display = 'block';
+  munecoEl.onerror = intentarCargar;
+  munecoEl.onload = () => {
+    munecoEl.style.display = 'block';
   };
   
   intentarCargar();
@@ -148,7 +219,7 @@ function cargarMuneco() {
 // ===== CARGAR PRENDAS =====
 function cargarPrendas() {
   const config = NIVELES_CONFIG[nivelActual];
-  if (!config) return;
+  if (!config || config.especial) return;
   
   const prendasAMostrar = [];
   
@@ -215,6 +286,45 @@ function crearPrendaElement(prenda, index) {
     quitarResaltado();
   });
   
+  // Soporte táctil (móviles)
+  let touchStartX, touchStartY;
+  
+  wrapper.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    wrapper.classList.add('dragging');
+    resaltarZonasValidas(prenda.tipo);
+  });
+  
+  wrapper.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    wrapper.style.position = 'fixed';
+    wrapper.style.left = touch.clientX - 50 + 'px';
+    wrapper.style.top = touch.clientY - 50 + 'px';
+    wrapper.style.zIndex = '1000';
+  });
+  
+  wrapper.addEventListener('touchend', (e) => {
+    const touch = e.changedTouches[0];
+    const elemento = document.elementFromPoint(touch.clientX, touch.clientY);
+    const zona = elemento?.closest('.zona-drop');
+    
+    if (zona && zona.dataset.tipo === prenda.tipo && !zona.classList.contains('filled')) {
+      colocarPrenda(wrapper, zona);
+    } else if (zona) {
+      mostrarError(zona);
+    }
+    
+    wrapper.style.position = '';
+    wrapper.style.left = '';
+    wrapper.style.top = '';
+    wrapper.style.zIndex = '';
+    wrapper.classList.remove('dragging');
+    quitarResaltado();
+  });
+  
   wrapper.appendChild(img);
   wrapper.appendChild(label);
   
@@ -224,8 +334,10 @@ function crearPrendaElement(prenda, index) {
 // ===== RESALTAR ZONAS VÁLIDAS =====
 function resaltarZonasValidas(tipo) {
   const config = NIVELES_CONFIG[nivelActual];
+  if (!config || config.especial) return;
+  
   config.prendas.forEach(prenda => {
-    if (prenda.tipo === tipo) {
+    if (prenda.tipo === tipo && prenda.zona) {
       prenda.zona.classList.add('highlight');
     }
   });
@@ -234,13 +346,17 @@ function resaltarZonasValidas(tipo) {
 // ===== QUITAR RESALTADO =====
 function quitarResaltado() {
   const config = NIVELES_CONFIG[nivelActual];
+  if (!config || config.especial) return;
+  
   config.zonas.forEach(zona => {
-    zona.classList.remove('highlight', 'invalid');
+    if (zona) zona.classList.remove('highlight', 'invalid');
   });
 }
 
 // ===== CONFIGURAR ZONA DE DROP =====
 function configurarZonaDrop(zona, tipoEsperado) {
+  if (!zona) return;
+  
   zona.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
@@ -265,6 +381,9 @@ function configurarZonaDrop(zona, tipoEsperado) {
 
 // ===== COLOCAR PRENDA =====
 function colocarPrenda(prenda, zona) {
+  // Crear efecto de éxito
+  crearEfectoEstrellas(zona);
+  
   // Remover del inventario
   prenda.remove();
   
@@ -291,9 +410,53 @@ function colocarPrenda(prenda, zona) {
   }
 }
 
+// ===== EFECTO VISUAL =====
+function crearEfectoEstrellas(zona) {
+  for (let i = 0; i < 5; i++) {
+    const estrella = document.createElement('div');
+    estrella.textContent = '⭐';
+    estrella.style.position = 'fixed';
+    estrella.style.left = zona.getBoundingClientRect().left + zona.offsetWidth / 2 + 'px';
+    estrella.style.top = zona.getBoundingClientRect().top + zona.offsetHeight / 2 + 'px';
+    estrella.style.fontSize = '2rem';
+    estrella.style.zIndex = '9999';
+    estrella.style.pointerEvents = 'none';
+    estrella.style.animation = `estrellaVolar ${0.8 + i * 0.1}s ease-out forwards`;
+    
+    document.body.appendChild(estrella);
+    
+    setTimeout(() => estrella.remove(), 1000);
+  }
+}
+
+// Añadir animación de estrellas
+if (!document.getElementById('estrellas-style')) {
+  const styleEfectos = document.createElement('style');
+  styleEfectos.id = 'estrellas-style';
+  styleEfectos.textContent = `
+    @keyframes estrellaVolar {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(${Math.random() * 200 - 100}px, ${-100 - Math.random() * 100}px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(styleEfectos);
+}
+
 // ===== MOSTRAR ERROR =====
 function mostrarError(zona) {
   zona.classList.add('invalid');
+  
+  // Vibrar si el dispositivo lo soporta
+  if (navigator.vibrate) {
+    navigator.vibrate(200);
+  }
+  
   setTimeout(() => {
     zona.classList.remove('invalid');
   }, 400);
@@ -313,7 +476,8 @@ function nivelCompletado() {
   const mensajes = [
     `¡Felicidades ${nombreJugador}! Has completado el nivel ${nivelActual} 🎉`,
     `¡Excelente trabajo! Nivel ${nivelActual} superado 🌟`,
-    `¡Increíble! Dominaste el nivel ${nivelActual} 🏆`
+    `¡Increíble! Dominaste el nivel ${nivelActual} 🏆`,
+    `¡Eres un campeón! Nivel ${nivelActual} completado 🎊`
   ];
   
   const mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
@@ -325,7 +489,11 @@ function nivelCompletado() {
 
 // ===== REINICIAR NIVEL =====
 function reiniciarNivel() {
-  actualizarPantalla();
+  if (nivelActual === 3 && window.reiniciarNivel3) {
+    window.reiniciarNivel3();
+  } else {
+    actualizarPantalla();
+  }
 }
 
 // ===== SIGUIENTE NIVEL =====
@@ -333,6 +501,7 @@ function siguienteNivel() {
   if (nivelActual < Object.keys(NIVELES_CONFIG).length) {
     nivelActual++;
     setNivelActual(nivelActual);
+    modalFelicitaciones.style.display = 'none';
     actualizarPantalla();
     btnSiguienteNivel.disabled = true;
   } else {
@@ -357,7 +526,16 @@ function configurarEventos() {
   btnContinuar.addEventListener('click', () => {
     modalFelicitaciones.style.display = 'none';
   });
+  
+  // Cerrar modal al hacer clic fuera
+  modalFelicitaciones.addEventListener('click', (e) => {
+    if (e.target === modalFelicitaciones) {
+      modalFelicitaciones.style.display = 'none';
+    }
+  });
 }
 
 // ===== INICIAR =====
 inicializarJuego();
+
+console.log('🎮 Aventuropa - Sistema de niveles cargado correctamente');
